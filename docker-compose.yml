@@ -1,7 +1,5 @@
 services:
   asl-alphabets:
     build: .
-    ports:
-      - "8005:8005"
     restart: always
     container_name: asl-alphabets-service
