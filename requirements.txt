@@ -3,13 +3,10 @@ fastapi==0.115.8
 uvicorn==0.34.0
 python-multipart==0.0.20
 
-# Core AI/ML (Pinned to compatible versions)
-ultralytics==8.3.70
-torch==2.5.1
-torchvision==0.20.1
-# Ultralytics 8.3.70 requires numpy <= 2.1.1
-numpy==2.1.1
+# Core AI/ML (ONNX Runtime replaces PyTorch & Ultralytics)
+onnxruntime
 
 # Image Processing (Headless for Docker)
 opencv-python-headless==4.11.0.86
 pillow>=10.0.0
+numpy
