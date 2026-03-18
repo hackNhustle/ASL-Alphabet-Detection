@@ -15,8 +15,10 @@ class ASLPredictor:
             
         logger.info(f"Loading ONNX model from {weights_path}")
         
-        # Initialize ONNX Runtime session
-        self.session = ort.InferenceSession(weights_path, providers=['CPUExecutionProvider'])
+        # Initialize ONNX Runtime session with logging level 3 (ERROR only) to suppress GPU discovery warnings in Docker
+        sess_options = ort.SessionOptions()
+        sess_options.log_severity_level = 3
+        self.session = ort.InferenceSession(weights_path, sess_options=sess_options, providers=['CPUExecutionProvider'])
         
         # Extract class names from ONNX metadata (Ultralytics embeds this)
         meta = self.session.get_modelmeta().custom_metadata_map
