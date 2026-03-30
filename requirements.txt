@@ -10,3 +10,4 @@ onnxruntime
 opencv-python-headless==4.11.0.86
 pillow>=10.0.0
 numpy
+psutil>=5.9.0
